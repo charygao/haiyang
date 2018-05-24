@@ -16,6 +16,7 @@
     <module>servicemanager</module>
     <module>apiclient</module>
     <module>hmall</module>
+    <module>apiproxy</module>
   </modules>
 
   <properties>
