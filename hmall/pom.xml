@@ -22,7 +22,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<spring-cloud.version>Finchley.BUILD-SNAPSHOT</spring-cloud.version>
+		<!--<spring-cloud.version>Finchley.BUILD-SNAPSHOT</spring-cloud.version>-->
+		<spring-cloud.version>Edgware.RELEASE</spring-cloud.version>
 	</properties>
 
 	<dependencies>
@@ -102,7 +103,54 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.5.4.RELEASE</version>
+                <!--<configuration>
+                    <skip>true</skip>
+                </configuration>-->
 			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                <archive>
+                    <manifest>
+                        <addClasspath>true</addClasspath>
+                        <useUniqueVersions>false</useUniqueVersions>
+                        <classpathPrefix>lib/</classpathPrefix>
+                        <mainClass>site.haiyang.hmall.HmallApplication</mainClass>
+                    </manifest>
+                    <manifestEntries>
+                        <version>${project.version}</version>
+                    </manifestEntries>
+                </archive>
+            </configuration>
+            </plugin>
+
+            <!--<plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.5.4.RELEASE</version>
+                <configuration>
+                    &lt;!&ndash;<skip>true</skip>&ndash;&gt;
+                    <mainClass>site.haiyang.hmall.HmallApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
+
 		</plugins>
 	</build>
 
@@ -115,6 +163,16 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
+		<!--<repository>-->
+			<!--<id>spring-milestones</id>-->
+			<!--<name>Spring Milestones</name>-->
+			<!--<url>https://repo.spring.io/milestone</url>-->
+			<!--<snapshots>-->
+				<!--<enabled>false</enabled>-->
+			<!--</snapshots>-->
+		<!--</repository>-->
+
+		<!--new-->
 		<repository>
 			<id>spring-milestones</id>
 			<name>Spring Milestones</name>
@@ -122,6 +180,25 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
+		</repository>
+		<repository>
+			<id>repository.springframework.maven.release</id>
+			<name>Spring Framework Maven Release Repository</name>
+			<url>http://maven.springframework.org/milestone/</url>
+		</repository>
+		<repository>
+			<id>org.springframework</id>
+			<url> http://maven.springframework.org/snapshot</url>
+		</repository>
+		<repository>
+			<id>spring-milestone</id>
+			<name>Spring Maven MILESTONE Repository</name>
+			<url>http://repo.spring.io/libs-milestone</url>
+		</repository>
+		<repository>
+			<id>spring-release</id>
+			<name>Spring Maven RELEASE Repository</name>
+			<url>http://repo.spring.io/libs-release</url>
 		</repository>
 	</repositories>
 
