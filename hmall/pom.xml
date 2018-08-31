@@ -146,7 +146,9 @@
 			<version>1.0.11</version>
 		</dependency>
 
-		<!--不使用这个会异常 Caused by: java.lang.IllegalArgumentException: Property 'sqlSessionFactory' or 'sqlSessionTemplate' are required-->
+		<!--不使用这个会异常
+		大概是因为，mybatis-spring非starter取消了自动注入吧。
+		Caused by: java.lang.IllegalArgumentException: Property 'sqlSessionFactory' or 'sqlSessionTemplate' are required-->
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
