@@ -23,7 +23,7 @@ public class UtilRedisCheckin {
         }else{
             dayOfWeek --;
         }
-        String weekAndDate = dayOfWeek+","+DateUtil.format(new Date(),"yyyy-MM-dd");
+        String weekAndDate = dayOfWeek+","+DateUtil.format(manuDate,"yyyy-MM-dd");
         long flag = UtilsJedis.lpush("checkin_week_"+weekOfYear + "_"+userId, weekAndDate,168*3600);
         return flag>0;
     }
