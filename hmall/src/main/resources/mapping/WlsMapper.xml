@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="site.haiyang.hmall.mapper.WlsMapper">
+  <resultMap id="BaseResultMap" type="site.haiyang.hmall.model.Wls">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="barcode" jdbcType="VARCHAR" property="barcode" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="create_time" jdbcType="INTEGER" property="createTime" />
+    <result column="is_get" jdbcType="TINYINT" property="isGet" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, barcode, user_id, ip, create_time, is_get
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from wemall_guaguaka_logo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from wemall_guaguaka_logo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="site.haiyang.hmall.model.Wls">
+    insert into wemall_guaguaka_logo (id, barcode, user_id, 
+      ip, create_time, is_get
+      )
+    values (#{id,jdbcType=INTEGER}, #{barcode,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+      #{ip,jdbcType=VARCHAR}, #{createTime,jdbcType=INTEGER}, #{isGet,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="site.haiyang.hmall.model.Wls">
+    insert into wemall_guaguaka_logo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="barcode != null">
+        barcode,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="isGet != null">
+        is_get,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="barcode != null">
+        #{barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="isGet != null">
+        #{isGet,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="site.haiyang.hmall.model.Wls">
+    update wemall_guaguaka_logo
+    <set>
+      <if test="barcode != null">
+        barcode = #{barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="isGet != null">
+        is_get = #{isGet,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="site.haiyang.hmall.model.Wls">
+    update wemall_guaguaka_logo
+    set barcode = #{barcode,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      ip = #{ip,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=INTEGER},
+      is_get = #{isGet,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="site.haiyang.hmall.model.Wls">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="total_points" jdbcType="INTEGER" property="totalPoints" />
+    <result column="dead_month" jdbcType="TIMESTAMP" property="deadMonth" />
+    <result column="extendtime1" jdbcType="TIMESTAMP" property="extendtime1" />
+    <result column="extendtime2" jdbcType="TIMESTAMP" property="extendtime2" />
+    <result column="extendtime3" jdbcType="TIMESTAMP" property="extendtime3" />
+    <result column="extendint1" jdbcType="INTEGER" property="extendint1" />
+    <result column="extendint2" jdbcType="INTEGER" property="extendint2" />
+    <result column="extendint3" jdbcType="INTEGER" property="extendint3" />
+    <result column="extendint4" jdbcType="INTEGER" property="extendint4" />
+    <result column="extendint5" jdbcType="INTEGER" property="extendint5" />
+    <result column="extendstr1" jdbcType="VARCHAR" property="extendstr1" />
+    <result column="extendstr2" jdbcType="VARCHAR" property="extendstr2" />
+    <result column="extendstr3" jdbcType="VARCHAR" property="extendstr3" />
+    <result column="extendstr4" jdbcType="VARCHAR" property="extendstr4" />
+    <result column="extendstr5" jdbcType="VARCHAR" property="extendstr5" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="invalid" jdbcType="BIT" property="invalid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, total_points, dead_month, extendtime1, extendtime2, extendtime3, extendint1, 
+    extendint2, extendint3, extendint4, extendint5, extendstr1, extendstr2, extendstr3, 
+    extendstr4, extendstr5, create_time, update_time, status, invalid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from wemall_guaguaka_fee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from wemall_guaguaka_fee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="site.haiyang.hmall.model.Wls">
+    insert into wemall_guaguaka_fee (id, user_id, total_points, 
+      dead_month, extendtime1, extendtime2, 
+      extendtime3, extendint1, extendint2, 
+      extendint3, extendint4, extendint5, 
+      extendstr1, extendstr2, extendstr3, 
+      extendstr4, extendstr5, create_time, 
+      update_time, status, invalid
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=BIGINT}, #{totalPoints,jdbcType=INTEGER}, 
+      #{deadMonth,jdbcType=TIMESTAMP}, #{extendtime1,jdbcType=TIMESTAMP}, #{extendtime2,jdbcType=TIMESTAMP}, 
+      #{extendtime3,jdbcType=TIMESTAMP}, #{extendint1,jdbcType=INTEGER}, #{extendint2,jdbcType=INTEGER}, 
+      #{extendint3,jdbcType=INTEGER}, #{extendint4,jdbcType=INTEGER}, #{extendint5,jdbcType=INTEGER}, 
+      #{extendstr1,jdbcType=VARCHAR}, #{extendstr2,jdbcType=VARCHAR}, #{extendstr3,jdbcType=VARCHAR}, 
+      #{extendstr4,jdbcType=VARCHAR}, #{extendstr5,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, #{invalid,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="site.haiyang.hmall.model.Wls">
+    insert into wemall_guaguaka_fee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="totalPoints != null">
+        total_points,
+      </if>
+      <if test="deadMonth != null">
+        dead_month,
+      </if>
+      <if test="extendtime1 != null">
+        extendtime1,
+      </if>
+      <if test="extendtime2 != null">
+        extendtime2,
+      </if>
+      <if test="extendtime3 != null">
+        extendtime3,
+      </if>
+      <if test="extendint1 != null">
+        extendint1,
+      </if>
+      <if test="extendint2 != null">
+        extendint2,
+      </if>
+      <if test="extendint3 != null">
+        extendint3,
+      </if>
+      <if test="extendint4 != null">
+        extendint4,
+      </if>
+      <if test="extendint5 != null">
+        extendint5,
+      </if>
+      <if test="extendstr1 != null">
+        extendstr1,
+      </if>
+      <if test="extendstr2 != null">
+        extendstr2,
+      </if>
+      <if test="extendstr3 != null">
+        extendstr3,
+      </if>
+      <if test="extendstr4 != null">
+        extendstr4,
+      </if>
+      <if test="extendstr5 != null">
+        extendstr5,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="invalid != null">
+        invalid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="totalPoints != null">
+        #{totalPoints,jdbcType=INTEGER},
+      </if>
+      <if test="deadMonth != null">
+        #{deadMonth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extendtime1 != null">
+        #{extendtime1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extendtime2 != null">
+        #{extendtime2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extendtime3 != null">
+        #{extendtime3,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extendint1 != null">
+        #{extendint1,jdbcType=INTEGER},
+      </if>
+      <if test="extendint2 != null">
+        #{extendint2,jdbcType=INTEGER},
+      </if>
+      <if test="extendint3 != null">
+        #{extendint3,jdbcType=INTEGER},
+      </if>
+      <if test="extendint4 != null">
+        #{extendint4,jdbcType=INTEGER},
+      </if>
+      <if test="extendint5 != null">
+        #{extendint5,jdbcType=INTEGER},
+      </if>
+      <if test="extendstr1 != null">
+        #{extendstr1,jdbcType=VARCHAR},
+      </if>
+      <if test="extendstr2 != null">
+        #{extendstr2,jdbcType=VARCHAR},
+      </if>
+      <if test="extendstr3 != null">
+        #{extendstr3,jdbcType=VARCHAR},
+      </if>
+      <if test="extendstr4 != null">
+        #{extendstr4,jdbcType=VARCHAR},
+      </if>
+      <if test="extendstr5 != null">
+        #{extendstr5,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="invalid != null">
+        #{invalid,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="site.haiyang.hmall.model.Wls">
+    update wemall_guaguaka_fee
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="totalPoints != null">
+        total_points = #{totalPoints,jdbcType=INTEGER},
+      </if>
+      <if test="deadMonth != null">
+        dead_month = #{deadMonth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extendtime1 != null">
+        extendtime1 = #{extendtime1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extendtime2 != null">
+        extendtime2 = #{extendtime2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extendtime3 != null">
+        extendtime3 = #{extendtime3,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extendint1 != null">
+        extendint1 = #{extendint1,jdbcType=INTEGER},
+      </if>
+      <if test="extendint2 != null">
+        extendint2 = #{extendint2,jdbcType=INTEGER},
+      </if>
+      <if test="extendint3 != null">
+        extendint3 = #{extendint3,jdbcType=INTEGER},
+      </if>
+      <if test="extendint4 != null">
+        extendint4 = #{extendint4,jdbcType=INTEGER},
+      </if>
+      <if test="extendint5 != null">
+        extendint5 = #{extendint5,jdbcType=INTEGER},
+      </if>
+      <if test="extendstr1 != null">
+        extendstr1 = #{extendstr1,jdbcType=VARCHAR},
+      </if>
+      <if test="extendstr2 != null">
+        extendstr2 = #{extendstr2,jdbcType=VARCHAR},
+      </if>
+      <if test="extendstr3 != null">
+        extendstr3 = #{extendstr3,jdbcType=VARCHAR},
+      </if>
+      <if test="extendstr4 != null">
+        extendstr4 = #{extendstr4,jdbcType=VARCHAR},
+      </if>
+      <if test="extendstr5 != null">
+        extendstr5 = #{extendstr5,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="invalid != null">
+        invalid = #{invalid,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="site.haiyang.hmall.model.Wls">
+    update wemall_guaguaka_fee
+    set user_id = #{userId,jdbcType=BIGINT},
+      total_points = #{totalPoints,jdbcType=INTEGER},
+      dead_month = #{deadMonth,jdbcType=TIMESTAMP},
+      extendtime1 = #{extendtime1,jdbcType=TIMESTAMP},
+      extendtime2 = #{extendtime2,jdbcType=TIMESTAMP},
+      extendtime3 = #{extendtime3,jdbcType=TIMESTAMP},
+      extendint1 = #{extendint1,jdbcType=INTEGER},
+      extendint2 = #{extendint2,jdbcType=INTEGER},
+      extendint3 = #{extendint3,jdbcType=INTEGER},
+      extendint4 = #{extendint4,jdbcType=INTEGER},
+      extendint5 = #{extendint5,jdbcType=INTEGER},
+      extendstr1 = #{extendstr1,jdbcType=VARCHAR},
+      extendstr2 = #{extendstr2,jdbcType=VARCHAR},
+      extendstr3 = #{extendstr3,jdbcType=VARCHAR},
+      extendstr4 = #{extendstr4,jdbcType=VARCHAR},
+      extendstr5 = #{extendstr5,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      invalid = #{invalid,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="site.haiyang.hmall.model.Wls">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="barcode" jdbcType="VARCHAR" property="barcode" />
+    <result column="verify_code" jdbcType="VARCHAR" property="verifyCode" />
+    <result column="batch" jdbcType="VARCHAR" property="batch" />
+    <result column="create_time" jdbcType="INTEGER" property="createTime" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="is_used" jdbcType="BIT" property="isUsed" />
+    <result column="update_time" jdbcType="INTEGER" property="updateTime" />
+    <result column="code_type" jdbcType="VARCHAR" property="codeType" />
+    <result column="batch_no" jdbcType="VARCHAR" property="batchNo" />
+    <result column="points" jdbcType="INTEGER" property="points" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, barcode, verify_code, batch, create_time, status, is_used, update_time, code_type, 
+    batch_no, points
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from wemall_guaguaka_barcode
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from wemall_guaguaka_barcode
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="site.haiyang.hmall.model.Wls">
+    insert into wemall_guaguaka_barcode (id, barcode, verify_code, 
+      batch, create_time, status, 
+      is_used, update_time, code_type, 
+      batch_no, points)
+    values (#{id,jdbcType=INTEGER}, #{barcode,jdbcType=VARCHAR}, #{verifyCode,jdbcType=VARCHAR}, 
+      #{batch,jdbcType=VARCHAR}, #{createTime,jdbcType=INTEGER}, #{status,jdbcType=BIT}, 
+      #{isUsed,jdbcType=BIT}, #{updateTime,jdbcType=INTEGER}, #{codeType,jdbcType=VARCHAR}, 
+      #{batchNo,jdbcType=VARCHAR}, #{points,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="site.haiyang.hmall.model.Wls">
+    insert into wemall_guaguaka_barcode
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="barcode != null">
+        barcode,
+      </if>
+      <if test="verifyCode != null">
+        verify_code,
+      </if>
+      <if test="batch != null">
+        batch,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="isUsed != null">
+        is_used,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="codeType != null">
+        code_type,
+      </if>
+      <if test="batchNo != null">
+        batch_no,
+      </if>
+      <if test="points != null">
+        points,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="barcode != null">
+        #{barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyCode != null">
+        #{verifyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="batch != null">
+        #{batch,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="isUsed != null">
+        #{isUsed,jdbcType=BIT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=INTEGER},
+      </if>
+      <if test="codeType != null">
+        #{codeType,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNo != null">
+        #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="points != null">
+        #{points,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="site.haiyang.hmall.model.Wls">
+    update wemall_guaguaka_barcode
+    <set>
+      <if test="barcode != null">
+        barcode = #{barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyCode != null">
+        verify_code = #{verifyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="batch != null">
+        batch = #{batch,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="isUsed != null">
+        is_used = #{isUsed,jdbcType=BIT},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=INTEGER},
+      </if>
+      <if test="codeType != null">
+        code_type = #{codeType,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNo != null">
+        batch_no = #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="points != null">
+        points = #{points,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="site.haiyang.hmall.model.Wls">
+    update wemall_guaguaka_barcode
+    set barcode = #{barcode,jdbcType=VARCHAR},
+      verify_code = #{verifyCode,jdbcType=VARCHAR},
+      batch = #{batch,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=INTEGER},
+      status = #{status,jdbcType=BIT},
+      is_used = #{isUsed,jdbcType=BIT},
+      update_time = #{updateTime,jdbcType=INTEGER},
+      code_type = #{codeType,jdbcType=VARCHAR},
+      batch_no = #{batchNo,jdbcType=VARCHAR},
+      points = #{points,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
