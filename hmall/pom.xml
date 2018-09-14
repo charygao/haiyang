@@ -180,7 +180,16 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-		</dependencies>
+
+            <!-- https://mvnrepository.com/artifact/net.sf.json-lib/json-lib -->
+            <dependency>
+                <groupId>net.sf.json-lib</groupId>
+                <artifactId>json-lib</artifactId>
+                <version>2.4</version>
+                <scope>test</scope>
+            </dependency>
+
+        </dependencies>
 	</dependencyManagement>
 
 	<build>
