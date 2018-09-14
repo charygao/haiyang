@@ -17,6 +17,7 @@
     <module>apiclient</module>
     <module>hmall</module>
     <module>apiproxy</module>
+      <module>common</module>
   </modules>
 
 
